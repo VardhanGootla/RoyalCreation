@@ -40,7 +40,10 @@ const events = [
   { name: 'Birthday Party', img: 'https://images.pexels.com/photos/1729797/pexels-photo-1729797.jpeg' },
   { name: 'Engagement', img: 'https://images.pexels.com/photos/724118/pexels-photo-724118.jpeg' },
   { name: 'Anniversary', img: 'https://images.pexels.com/photos/2950331/pexels-photo-2950331.jpeg' },
-  { name: 'Corporate Meeting', img: 'https://images.pexels.com/photos/6691674/pexels-photo-6691674.jpeg' },
+  { name: 'Corporate Event', img: 'https://images.pexels.com/photos/6691674/pexels-photo-6691674.jpeg' },
+  { name: 'Baby Shower', img: 'https://images.pexels.com/photos/6691674/pexels-photo-6691674.jpeg' },
+  { name: 'Catering Service', img: 'https://images.pexels.com/photos/6691674/pexels-photo-6691674.jpeg' },
+  { name: 'Naming Ceremony', img: 'https://images.pexels.com/photos/6691674/pexels-photo-6691674.jpeg' },
 ];
 
 const ServiceBooking = () => {

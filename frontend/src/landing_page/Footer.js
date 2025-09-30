@@ -42,9 +42,9 @@ function Footer() {
           {/* Column 3: Contact */}
           <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-            <p style={linkStyle}><i className="bi bi-geo-alt-fill me-3"></i>New Delhi, India</p>
-            <p style={linkStyle}><i className="bi bi-envelope-fill me-3"></i>info@royalcreation.com</p>
-            <p style={linkStyle}><i className="bi bi-telephone-fill me-3"></i>+91 987 654 3210</p>
+            <p style={linkStyle}><i className="bi bi-geo-alt-fill me-3"></i>Kalyan, Maharashtra, India</p>
+            <p style={linkStyle}><i className="bi bi-envelope-fill me-3"></i>nikhil.lone@gmail.com</p>
+            <p style={linkStyle}><i className="bi bi-telephone-fill me-3"></i>+91 9665874795</p>
           </div>
 
           {/* Column 4: Social Media */}
@@ -54,13 +54,13 @@ function Footer() {
               Stay up to date with our latest events and offers.
             </p>
             <div>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-floating m-1 rounded-circle">
+              <a href="https://www.facebook.com/share/1NinVhtxcK/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-floating m-1 rounded-circle">
                 <i className="bi bi-facebook"></i>
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-floating m-1 rounded-circle">
                 <i className="bi bi-twitter"></i>
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-floating m-1 rounded-circle">
+              <a href="https://www.instagram.com/royal_creation_event?igsh=MWdqaWdicmdvcXM0ag==" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-floating m-1 rounded-circle">
                 <i className="bi bi-instagram"></i>
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-floating m-1 rounded-circle">
