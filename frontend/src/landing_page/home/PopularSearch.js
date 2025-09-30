@@ -12,9 +12,11 @@ const popularSearches = [
 
 function PopularSearch() {
   return (
-    <section className="popular-searches py-5 ">
+    <section className="popular-searches py-5" style={{ backgroundColor: '#fdf2f7' }}>
       <div className="container ">
-        <h2 className="mb-4 text-center fw-bold mt-5">Popular Searches</h2>
+        <h2 className="mb-4 text-center fw-bold mt-5" style={{ color: 'rgb(255, 102, 163)' }}>
+          Popular Searches
+        </h2>
 
         <div className="row g-4 justify-content-center mt-3">
           {popularSearches.map((item, index) => (
