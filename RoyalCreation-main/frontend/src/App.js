@@ -11,6 +11,8 @@ import StressFreeWedding from './landing_page/weddingDiaries/blogs/StressFreeWed
 import BirthdayThemes from './landing_page/weddingDiaries/blogs/BirthdayThemes';
 import CorporateEvents from './landing_page/weddingDiaries/blogs/CorporateEvents';
 import VenueSelectionGuide from './landing_page/weddingDiaries/blogs/VenueSelectionGuide';
+import EventBudgeting from './landing_page/weddingDiaries/blogs/EventBudgeting';
+import DecorTrends from './landing_page/weddingDiaries/blogs/DecorTrends';
 import SignIn from './components/SignIn';
 import AdminDashboard from './Admin/AdminDashboard';
 
@@ -28,6 +30,8 @@ function App() {
       <Route path="/blog/birthday-themes" element={<BirthdayThemes />} />
       <Route path="/blog/corporate-events-ideas" element={<CorporateEvents />} />
       <Route path="/blog/venue-selection-guide" element={<VenueSelectionGuide />} />
+      <Route path="/blog/event-budgeting" element={<EventBudgeting />} />
+      <Route path="/blog/decor-trends" element={<DecorTrends />} />
       <Route path="/book-event" element={<ServiceBooking />} />
       <Route path="/details" element={<div>Details Page Placeholder</div>} />
       <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
