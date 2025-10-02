@@ -17,13 +17,30 @@ function SignIn() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle authentication logic here
-    console.log('Sign in attempt:', { ...formData, rememberMe });
     
-    // Simulate successful login
-    // navigate('/');
+    try {
+      const response = await fetch('http://localhost:5000/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Handle successful login, e.g., store token, redirect
+        console.log('Sign in successful');
+        navigate('/');
+      } else {
+        const errorData = await response.json();
+        alert(errorData.msg || 'Login failed. Please check your credentials.');
+      }
+    } catch (error) {
+      console.error('Sign in error:', error);
+      alert('An error occurred during sign in. Please try again later.');
+    }
   };
 
   // Add the missing handleAdminLogin function

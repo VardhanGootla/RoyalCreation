@@ -37,17 +37,36 @@ const ServiceBooking = () => {
   };
 
   // *** UPDATED SUBMIT FUNCTION ***
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedEvent) {
       setErrorMessage('Please select an event type!');
       return;
     }
     const quotationRequest = { ...formData, event: selectedEvent };
-    console.log('Redirecting with data:', quotationRequest);
     
-    // Navigate to the details page and pass the form data in the state
-    navigate('/details', { state: { submission: quotationRequest } });
+    try {
+      const response = await fetch('http://localhost:5000/api/quotes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quotationRequest),
+      });
+
+      if (response.ok) {
+        console.log('Quotation request submitted successfully');
+        // Navigate to the details page and pass the form data in the state
+        navigate('/services', { state: { submission: quotationRequest } });
+      } else {
+        const errorData = await response.json();
+        setErrorMessage(errorData.message || 'Failed to submit quotation request.');
+        console.error('Failed to submit quotation request:', errorData);
+      }
+    } catch (error) {
+      setErrorMessage('An error occurred. Please try again later.');
+      console.error('An error occurred:', error);
+    }
   };
 
   return (

@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
 
-function CreateTicket() {
+function AddReview() {
   const [formData, setFormData] = useState({
-    subject: '',
-    message: ''
+    rating: '',
+    comment: ''
   });
 
   const handleChange = (e) => {
@@ -21,7 +21,7 @@ function CreateTicket() {
     const userId = '60d21b4667d0d8992e610c85'; // Hardcoded for now
 
     try {
-      const response = await fetch('http://localhost:5000/api/tickets', {
+      const response = await fetch('http://localhost:5000/api/reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,50 +30,52 @@ function CreateTicket() {
       });
 
       if (response.ok) {
-        alert('Ticket created successfully!');
+        alert('Review submitted successfully!');
         setFormData({
-          subject: '',
-          message: ''
+          rating: '',
+          comment: ''
         });
       } else {
         const errorData = await response.json();
-        alert(errorData.message || 'Failed to create ticket.');
+        alert(errorData.message || 'Failed to submit review.');
       }
     } catch (error) {
-      console.error('Create ticket error:', error);
+      console.error('Add review error:', error);
       alert('An error occurred. Please try again later.');
     }
   };
 
   return (
-    <div className="create-ticket-container">
-      <h2>Create a Support Ticket</h2>
+    <div className="add-review-container">
+      <h2>Add a Review</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="subject">Subject</label>
+          <label htmlFor="rating">Rating</label>
           <input
-            type="text"
-            id="subject"
-            name="subject"
-            value={formData.subject}
+            type="number"
+            id="rating"
+            name="rating"
+            value={formData.rating}
             onChange={handleChange}
+            min="1"
+            max="5"
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="message">Message</label>
+          <label htmlFor="comment">Comment</label>
           <textarea
-            id="message"
-            name="message"
-            value={formData.message}
+            id="comment"
+            name="comment"
+            value={formData.comment}
             onChange={handleChange}
             required
           ></textarea>
         </div>
-        <button type="submit">Create Ticket</button>
+        <button type="submit">Submit Review</button>
       </form>
     </div>
   );
 }
 
-export default CreateTicket;
+export default AddReview;

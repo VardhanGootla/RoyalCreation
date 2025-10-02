@@ -31,6 +31,7 @@ function AdminDashboard() {
               <Route path="/bookings" element={<Bookings />} />
               <Route path="/users" element={<Users />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/vendors" element={<Vendors />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>
           </div>
@@ -87,6 +88,7 @@ function AdminSidebar({ sidebarOpen, currentPath }) {
     { path: '/admin/dashboard/bookings', icon: '📅', label: 'Bookings' },
     { path: '/admin/dashboard/users', icon: '👥', label: 'Users' },
     { path: '/admin/dashboard/services', icon: '🎯', label: 'Services' },
+    { path: '/admin/dashboard/vendors', icon: '🏪', label: 'Vendors' },
     { path: '/admin/dashboard/settings', icon: '⚙️', label: 'Settings' }
   ];
 
@@ -326,12 +328,54 @@ function Users() {
 
 // Services Component
 function Services() {
-  const services = [
+  const [services, setServices] = useState([
     { id: 1, name: 'Wedding Planning', category: 'Wedding', price: '$2,000+', status: 'Active', bookings: 45 },
     { id: 2, name: 'Birthday Party', category: 'Party', price: '$500+', status: 'Active', bookings: 23 },
     { id: 3, name: 'Corporate Event', category: 'Corporate', price: '$1,500+', status: 'Active', bookings: 18 },
     { id: 4, name: 'Anniversary', category: 'Celebration', price: '$800+', status: 'Inactive', bookings: 8 }
-  ];
+  ]);
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    price: '',
+    category: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5000/api/services', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const newService = await response.json();
+        setServices([...services, newService]);
+        setShowForm(false);
+        setFormData({
+          name: '',
+          description: '',
+          price: '',
+          category: ''
+        });
+      } else {
+        const errorData = await response.json();
+        alert(errorData.message || 'Failed to create service.');
+      }
+    } catch (error) {
+      console.error('Create service error:', error);
+      alert('An error occurred. Please try again later.');
+    }
+  };
 
   return (
     <div className="services-page">
@@ -362,14 +406,167 @@ function Services() {
         ))}
       </div>
 
-      <button className="btn-primary add-service-btn">
+      <button className="btn-primary add-service-btn" onClick={() => setShowForm(!showForm)}>
         + Add New Service
       </button>
+
+      {showForm && (
+        <div className="section-card">
+          <h3>Add New Service</h3>
+          <form onSubmit={handleSubmit}>
+            <div className="setting-group">
+              <label>Name</label>
+              <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+            </div>
+            <div className="setting-group">
+              <label>Description</label>
+              <input type="text" name="description" value={formData.description} onChange={handleChange} required />
+            </div>
+            <div className="setting-group">
+              <label>Price</label>
+              <input type="text" name="price" value={formData.price} onChange={handleChange} required />
+            </div>
+            <div className="setting-group">
+              <label>Category</label>
+              <input type="text" name="category" value={formData.category} onChange={handleChange} required />
+            </div>
+            <div className="settings-actions">
+              <button type="submit" className="btn-primary">Create Service</button>
+              <button type="button" className="btn-secondary" onClick={() => setShowForm(false)}>Cancel</button>
+            </div>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+// Vendors Component
+function Vendors() {
+  const [vendors, setVendors] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    service: '',
+    contact: '',
+    email: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5000/api/vendors', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const newVendor = await response.json();
+        setVendors([...vendors, newVendor]);
+        setShowForm(false);
+        setFormData({
+          name: '',
+          service: '',
+          contact: '',
+          email: ''
+        });
+      } else {
+        const errorData = await response.json();
+        alert(errorData.message || 'Failed to create vendor.');
+      }
+    } catch (error) {
+      console.error('Create vendor error:', error);
+      alert('An error occurred. Please try again later.');
+    }
+  };
+
+  return (
+    <div className="vendors-page">
+      <div className="page-header">
+        <h1>Vendors Management</h1>
+        <p>Manage your event vendors</p>
+      </div>
+
+      <button className="btn-primary add-vendor-btn" onClick={() => setShowForm(!showForm)}>
+        + Add New Vendor
+      </button>
+
+      {showForm && (
+        <div className="section-card">
+          <h3>Add New Vendor</h3>
+          <form onSubmit={handleSubmit}>
+            <div className="setting-group">
+              <label>Name</label>
+              <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+            </div>
+            <div className="setting-group">
+              <label>Service</label>
+              <input type="text" name="service" value={formData.service} onChange={handleChange} required />
+            </div>
+            <div className="setting-group">
+              <label>Contact</label>
+              <input type="text" name="contact" value={formData.contact} onChange={handleChange} required />
+            </div>
+            <div className="setting-group">
+              <label>Email</label>
+              <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+            </div>
+            <div className="settings-actions">
+              <button type="submit" className="btn-primary">Create Vendor</button>
+              <button type="button" className="btn-secondary" onClick={() => setShowForm(false)}>Cancel</button>
+            </div>
+          </form>
+        </div>
+      )}
+
+      <div className="section-card">
+        <div className="table-header">
+          <h3>Registered Vendors</h3>
+        </div>
+        <div className="table-container">
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Service</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {vendors.map((vendor) => (
+                <tr key={vendor._id}>
+                  <td>{vendor.name}</td>
+                  <td>{vendor.service}</td>
+                  <td>{vendor.contact}</td>
+                  <td>{vendor.email}</td>
+                  <td>
+                    <div className="action-buttons">
+                      <button className="btn-edit">Edit</button>
+                      <button className="btn-delete">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
 
 // Settings Component
+
 function Settings() {
   const [settings, setSettings] = useState({
     siteName: 'Royal Creation',

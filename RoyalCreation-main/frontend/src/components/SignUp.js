@@ -20,7 +20,7 @@ function SignUp() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Basic validation
@@ -34,13 +34,31 @@ function SignUp() {
       return;
     }
     
-    // Handle registration logic here
-    console.log('Sign up attempt:', { ...formData, agreeTerms });
-    
-    // Simulate successful registration
-    // navigate('/signin');
-    alert('Registration successful! Please sign in.');
-    navigate('/signin');
+    try {
+      const response = await fetch('http://localhost:5000/api/users/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          password: formData.password,
+        }),
+      });
+
+      if (response.ok) {
+        alert('Registration successful! Please sign in.');
+        navigate('/signin');
+      } else {
+        const errorData = await response.json();
+        alert(errorData.msg || 'Registration failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      alert('An error occurred during registration. Please try again later.');
+    }
   };
 
   const pinkTheme = {
