@@ -1,98 +1,60 @@
 import React from 'react';
-import Navbar from '../../../../Navbar';
-import Footer from '../../../../Footer';
+import Navbar from '../../Navbar';
+import Footer from '../../Footer';
 
 const EventBudgeting = () => {
   return (
     <div>
       <Navbar />
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-8" style={{ color: 'rgb(255, 102, 163)' }}>
-          How to Create a Realistic Event Budget
-        </h1>
-        
+        <h1 className="text-3xl font-bold text-center mb-8" style={{ color: 'rgb(255, 102, 163)' }}>Plan wisely, spend smartly, and make your celebration unforgettable</h1>
         <div className="prose lg:prose-xl mx-auto">
-          <p className="text-lg mb-6">
-            Planning an event budget can be daunting, but with proper organization and realistic expectations, 
-            you can create a financial plan that ensures your event is both memorable and affordable.
+          <p>
+            Planning an event budget can feel overwhelming, but with strategic organization and realistic expectations, 
+            you can create a financial plan that ensures your celebration is both magical and financially responsible. 
+            Here's our comprehensive guide to building a practical event budget.
           </p>
           
-          <div className="bg-blue-50 p-6 rounded-lg mb-6">
-            <h3 className="text-xl font-semibold mb-3">Quick Budget Overview</h3>
-            <p><strong>Golden Rule:</strong> Always allocate 10-15% for unexpected expenses!</p>
-          </div>
-
-          <ol className="list-decimal list-inside space-y-6">
-            <li>
-              <strong>Determine Your Total Budget</strong>
-              <p className="ml-6 mt-2">Start by establishing the maximum amount you're willing to spend. Be realistic about what you can afford and stick to this number.</p>
+          <ol className="list-group mb-3">
+            <li className="list-group-item">
+              <strong>Determine Your Total Budget:</strong> Start by establishing the maximum amount you're willing to spend. Be honest about what you can afford and commit to staying within this limit.
             </li>
-            
-            <li>
-              <strong>Identify Your Non-Negotiables</strong>
-              <p className="ml-6 mt-2">List your top 3 priorities (e.g., venue, catering, photography). These items should receive the largest portion of your budget.</p>
+            <li className="list-group-item">
+              <strong>Identify Your Non-Negotiables:</strong> Choose your top 3 priorities (venue, catering, photography, etc.). These cornerstone elements deserve the largest portion of your budget.
             </li>
-            
-            <li>
-              <strong>Research Average Costs</strong>
-              <p className="ml-6 mt-2">Investigate current market prices for venues, vendors, and services in your area to set realistic expectations.</p>
+            <li className="list-group-item">
+              <strong>Research Average Costs:</strong> Investigate current market rates for venues, vendors, and services in your area. This research prevents unrealistic expectations and helps with negotiations.
             </li>
-            
-            <li>
-              <strong>Create Detailed Categories</strong>
-              <p className="ml-6 mt-2">Break down your budget into specific categories:
-                <ul className="list-disc ml-8 mt-3 space-y-1">
-                  <li><strong>Venue & Rental Fees</strong> (25-30%)</li>
-                  <li><strong>Catering & Bar Service</strong> (30-35%)</li>
-                  <li><strong>Photography & Videography</strong> (10-15%)</li>
-                  <li><strong>Attire & Beauty</strong> (5-10%)</li>
-                  <li><strong>Entertainment & Music</strong> (5-10%)</li>
-                  <li><strong>Decor & Flowers</strong> (5-10%)</li>
-                  <li><strong>Stationery & Invitations</strong> (2-3%)</li>
-                  <li><strong>Transportation</strong> (2-3%)</li>
-                  <li><strong>Miscellaneous & Emergency Fund</strong> (10-15%)</li>
-                </ul>
-              </p>
+            <li className="list-group-item">
+              <strong>Create Detailed Categories:</strong> Break down your budget into specific categories: Venue & Rental (25-30%), Catering & Bar (30-35%), Photography & Videography (10-15%), Attire & Beauty (5-10%), Entertainment (5-10%), Decor & Flowers (5-10%), Stationery (2-3%), Transportation (2-3%), and Emergency Fund (10-15%).
             </li>
-            
-            <li>
-              <strong>Track Every Expense</strong>
-              <p className="ml-6 mt-2">Use a spreadsheet or budgeting app to record all deposits, payments, and receipts. Update it regularly.</p>
+            <li className="list-group-item">
+              <strong>Track Every Expense:</strong> Use digital tools like spreadsheets or budgeting apps to record all deposits, payments, and receipts. Regular updates keep you on track.
             </li>
-            
-            <li>
-              <strong>Negotiate with Vendors</strong>
-              <p className="ml-6 mt-2">Don't be afraid to ask for package deals or off-season discounts. Many vendors are willing to work within your budget.</p>
+            <li className="list-group-item">
+              <strong>Negotiate with Vendors:</strong> Don't hesitate to ask for package deals, off-season discounts, or custom packages. Most vendors are willing to work within reasonable budgets.
             </li>
-            
-            <li>
-              <strong>Plan for Hidden Costs</strong>
-              <p className="ml-6 mt-2">Remember to include taxes, service charges, gratuities, and overtime fees that often get overlooked.</p>
+            <li className="list-group-item">
+              <strong>Plan for Hidden Costs:</strong> Remember to include often-overlooked expenses like taxes, service charges, gratuities, delivery fees, and potential overtime charges.
             </li>
-            
-            <li>
-              <strong>Set Up a Payment Schedule</strong>
-              <p className="ml-6 mt-2">Coordinate deposit due dates with your pay schedule to avoid financial strain.</p>
+            <li className="list-group-item">
+              <strong>Set Up a Payment Schedule:</strong> Coordinate deposit due dates with your income schedule to avoid financial strain. Spread major payments across multiple months when possible.
             </li>
-            
-            <li>
-              <strong>Review and Adjust Regularly</strong>
-              <p className="ml-6 mt-2">Revisit your budget monthly and make adjustments as needed. Be prepared to cut non-essential items if necessary.</p>
+            <li className="list-group-item">
+              <strong>Review and Adjust Regularly:</strong> Revisit your budget monthly and make necessary adjustments. Be prepared to prioritize and cut non-essential items if needed.
             </li>
-            
-            <li>
-              <strong>Use Budgeting Tools</strong>
-              <p className="ml-6 mt-2">Consider using event planning apps or templates specifically designed for event budgeting.</p>
+            <li className="list-group-item">
+              <strong>Use Budgeting Tools:</strong> Leverage event planning apps, templates, or professional software designed specifically for event budgeting and management.
             </li>
           </ol>
-
-          <div className="bg-green-50 p-6 rounded-lg mt-8">
-            <h3 className="text-xl font-semibold mb-3">Pro Tips for Budget Success</h3>
-            <ul className="list-disc list-inside space-y-2">
-              <li>Create a separate email account for all event-related communications and receipts</li>
-              <li>Set up a dedicated savings account for your event funds</li>
-              <li>Consider event insurance for major unforeseen circumstances</li>
-              <li>Remember that DIY isn't always cheaper - factor in your time and materials</li>
+          
+          <div className="mt-8 p-4 bg-gray-50 rounded-lg">
+            <h3 className="font-semibold mb-2">Pro Budgeting Tips</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Always allocate 10-15% of your total budget for unexpected expenses</li>
+              <li>Create a dedicated email account for event-related communications</li>
+              <li>Set up a separate savings account specifically for event funds</li>
+              <li>Book vendors during off-season for better rates and availability</li>
             </ul>
           </div>
         </div>
