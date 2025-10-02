@@ -360,7 +360,7 @@ function ServicesPage() {
             </p>
             <div className="cta-buttons">
               <Link to="/book-event" className="btn-primary">
-                Get Started Now
+                Contact Us 
               </Link>
               <Link to="/about" className="btn-secondary">
                 Learn More About Us

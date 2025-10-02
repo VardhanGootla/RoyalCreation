@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
+  const location = useLocation();
+
   const brandStyle = {
     color: 'rgb(255, 102, 163)',
     fontWeight: 'bold',
@@ -119,19 +121,19 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/" style={navLinkStyle}>Home</Link>
+                <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/" style={navLinkStyle}>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about" style={navLinkStyle}>About</Link>
+                <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} to="/about" style={navLinkStyle}>About</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/services" style={navLinkStyle}>Services</Link>
+                <Link className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`} to="/services" style={navLinkStyle}>Services</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/reviews" style={navLinkStyle}>Reviews</Link>
+                <Link className={`nav-link ${location.pathname === '/reviews' ? 'active' : ''}`} to="/reviews" style={navLinkStyle}>Reviews</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/blog" style={navLinkStyle}>Blog</Link>
+                <Link className={`nav-link ${location.pathname === '/blog' ? 'active' : ''}`} to="/blog" style={navLinkStyle}>Blog</Link>
               </li>
             </ul>
             <div className="nav-buttons d-flex align-items-center">
@@ -139,7 +141,7 @@ function Navbar() {
                 Sign In
               </Link>
               <Link to="/book-event" className="btn btn-primary btn-booknow" style={ctaButtonStyle}>
-                Book Now
+                Contact Us
               </Link>
             </div>
           </div>

@@ -59,7 +59,7 @@ const ServiceBooking = () => {
 
           <form onSubmit={handleSubmit}>
             <div className="form-section">
-              <h2 className="section-title">1. Choose Your Event</h2>
+              <h2 className="section-title">1. Choose Your Event</h2> 
               <div className="event-selection-grid">
                 {events.map((event) => (
                   <div
