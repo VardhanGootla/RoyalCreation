@@ -58,9 +58,9 @@ const ServiceBooking = () => {
           <p className="booking-subtitle">Select an event and fill out your details to get a personalized quotation.</p>
 
           <form onSubmit={handleSubmit}>
-            <div className="form-section">
-              <h2 className="section-title">1. Choose Your Event</h2> 
-              <div className="event-selection-grid">
+            <div className="form-section d-block">
+              <h2 className="section-title">1.Choose Your Event</h2> 
+              <div className="event-selection-grid ">
                 {events.map((event) => (
                   <div
                     key={event.name}
@@ -74,13 +74,11 @@ const ServiceBooking = () => {
               </div>
             </div>
 
-            <div className="form-section">
-              <h2 className="section-title">2. Your Details</h2>
-              <div className="form-group">
+            <div className="form-section d-block">
+              <h2 className="section-title d-block">2. Your Details</h2>
+              <div className="details-grid form-inputs d-block">
                 <input type="text" name="name" placeholder="Full Name" className="form-input" value={formData.name} onChange={handleInputChange} required />
                 <input type="email" name="email" placeholder="Email Address" className="form-input" value={formData.email} onChange={handleInputChange} required />
-              </div>
-              <div className="form-group">
                 <input type="tel" name="phone" placeholder="Phone Number" className="form-input" value={formData.phone} onChange={handleInputChange} required />
                 <input type="date" name="date" className="form-input" value={formData.date} onChange={handleInputChange} required />
               </div>
