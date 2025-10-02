@@ -9,6 +9,7 @@ import BlogPage from './landing_page/BlogPage';
 import ServiceBooking from './landing_page/home/ServiceBooking';
 import StressFreeWedding from './landing_page/weddingDiaries/blogs/StressFreeWedding';
 import BirthdayThemes from './landing_page/weddingDiaries/blogs/BirthdayThemes';
+import CorporateEvents from './landing_page/weddingDiaries/blogs/CorporateEvents';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/blog/stress-free-wedding" element={<StressFreeWedding />} />
       <Route path="/blog/birthday-themes" element={<BirthdayThemes />} />
+      <Route path="/blog/corporate-events-ideas" element={<CorporateEvents />} />
       <Route path="/book-event" element={<ServiceBooking />} />
       <Route path="/details" element={<div>Details Page Placeholder</div>} />
     </Routes>

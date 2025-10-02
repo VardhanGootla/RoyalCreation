@@ -12,6 +12,7 @@ const StressFreeWedding = () => {
           <p>
             Your wedding day should be a joyous occasion, filled with love, laughter, and unforgettable moments. However, the pressure of planning and executing the perfect day can sometimes lead to stress. To help you enjoy every moment, here are our top 10 tips for a stress-free wedding day.
           </p>
+          <img src="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg" class="img-fluid mb-4 mt-4" alt="img"></img>
           <ol class="list-group mb-3">
             <li class="list-group-item">
               <strong>Plan Ahead:</strong> The more you plan in advance, the less you'll have to worry about on the big day. Create a detailed timeline and share it with your vendors, wedding party, and family.
