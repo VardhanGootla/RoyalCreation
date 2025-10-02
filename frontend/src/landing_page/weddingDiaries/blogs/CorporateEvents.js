@@ -8,7 +8,7 @@ const CorporateEvents = () => {
       <Navbar />
       <div class="container py-5">
         <h1 class="text-3xl font-bold text-center mb-8" style={{ color:'rgb(255, 102, 163)' }}>Corporate Events That People Actually Enjoy</h1>
-        <img src="https://images.pexels.com/photos/1181303/pexels-photo-1181303.jpeg" class="img-fluid mb-4 mt-4" alt="img"></img>
+        <img src="https://images.pexels.com/photos/1181303/pexels-photo-1181303.jpeg" class="img-fluid mb-4 mt-4 rounded-5 w-auto h-25" alt="img"></img>
         <div class="col-lg-8 mx-auto">
             <article>
                 <p class="lead">Tired of boring corporate gatherings? It’s time to move beyond stale pastries and awkward small talk. We share our secrets to planning engaging and memorable events for your team.</p>

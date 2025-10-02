@@ -8,7 +8,7 @@ const BirthdayThemes = () => {
       <Navbar />
       <div class="container py-5">
         <h1 class="text-3xl font-bold text-center mb-8" style={{ color: 'rgb(255, 102, 163)' }}>From Fun to Unforgettable: Choosing the Perfect Theme for Your Birthday Bash</h1>
-        <img src="https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg" class="img-fluid mb-4 mt-4" alt="img"></img>
+        <img src="https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg" class="img-fluid mb-4 mt-4 rounded-5 w-auto h-25" alt="img"></img>
         <div class="col-lg-8 mx-auto">
             <article>
   
