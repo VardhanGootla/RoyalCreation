@@ -14,6 +14,7 @@ import VenueSelectionGuide from './landing_page/weddingDiaries/blogs/VenueSelect
 import EventBudgeting from './landing_page/weddingDiaries/blogs/EventBudgeting';
 import DecorTrends from './landing_page/weddingDiaries/blogs/DecorTrends';
 import SignIn from './components/SignIn';
+import SignUp from './components/SignUp'; 
 import AdminDashboard from './Admin/AdminDashboard';
 
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/reviews" element={<ReviewsPage />} />
       <Route path="/blog" element={<BlogPage />} />
