@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Routes, Route, useNavigate, Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Routes, Route, useNavigate, Link } from "react-router-dom";
 
 // Admin Dashboard Main Component
 function AdminDashboard() {
@@ -7,28 +7,33 @@ function AdminDashboard() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    navigate('/signin');
+    navigate("/signin");
   };
 
   return (
     <div className="admin-dashboard">
-      <AdminNavbar 
-        sidebarOpen={sidebarOpen} 
+      <AdminNavbar
+        sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
         onLogout={handleLogout}
       />
-      
+
       <div className="admin-container">
-        <AdminSidebar 
-          sidebarOpen={sidebarOpen} 
+        <AdminSidebar
+          sidebarOpen={sidebarOpen}
           currentPath={window.location.pathname}
         />
-        
-        <div className={`admin-content ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+
+        <div
+          className={`admin-content ${
+            sidebarOpen ? "sidebar-open" : "sidebar-closed"
+          }`}
+        >
           <div className="content-area">
             <Routes>
               <Route path="/" element={<Overview />} />
               <Route path="/bookings" element={<Bookings />} />
+              <Route path="/quotations" element={<Quotations />} />
               <Route path="/users" element={<Users />} />
               <Route path="/services" element={<Services />} />
               <Route path="/vendors" element={<Vendors />} />
@@ -50,29 +55,35 @@ function AdminNavbar({ sidebarOpen, setSidebarOpen, onLogout }) {
   return (
     <nav className="admin-navbar">
       <div className="nav-left">
-        <button 
+        <button
           className="toggle-btn"
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
           </svg>
         </button>
         <h2 className="admin-title">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="crown-icon">
-            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="crown-icon"
+          >
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
           </svg>
           Royal Creation Admin
         </h2>
       </div>
-      
+
       <div className="nav-right">
         <div className="admin-user">
           <span>Welcome, Admin</span>
         </div>
         <button className="logout-btn" onClick={onLogout}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+            <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
           </svg>
           Logout
         </button>
@@ -84,22 +95,23 @@ function AdminNavbar({ sidebarOpen, setSidebarOpen, onLogout }) {
 // Admin Sidebar Component
 function AdminSidebar({ sidebarOpen, currentPath }) {
   const menuItems = [
-    { path: '/admin/dashboard', icon: '📊', label: 'Overview' },
-    { path: '/admin/dashboard/bookings', icon: '📅', label: 'Bookings' },
-    { path: '/admin/dashboard/users', icon: '👥', label: 'Users' },
-    { path: '/admin/dashboard/services', icon: '🎯', label: 'Services' },
-    { path: '/admin/dashboard/vendors', icon: '🏪', label: 'Vendors' },
-    { path: '/admin/dashboard/settings', icon: '⚙️', label: 'Settings' }
+    { path: "/admin/dashboard", icon: "📊", label: "Overview" },
+    { path: "/admin/dashboard/bookings", icon: "📅", label: "Bookings" },
+    { path: "/admin/dashboard/quotations", icon: "📝", label: "Quotations" },
+    { path: "/admin/dashboard/users", icon: "👥", label: "Users" },
+    { path: "/admin/dashboard/services", icon: "🎯", label: "Services" },
+    { path: "/admin/dashboard/vendors", icon: "🏪", label: "Vendors" },
+    { path: "/admin/dashboard/settings", icon: "⚙️", label: "Settings" },
   ];
 
   return (
-    <div className={`admin-sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
+    <div className={`admin-sidebar ${sidebarOpen ? "open" : "closed"}`}>
       <div className="sidebar-menu">
         {menuItems.map((item) => (
           <Link
             key={item.path}
             to={item.path}
-            className={`menu-item ${currentPath === item.path ? 'active' : ''}`}
+            className={`menu-item ${currentPath === item.path ? "active" : ""}`}
           >
             <span className="menu-icon">{item.icon}</span>
             <span className="menu-label">{item.label}</span>
@@ -113,17 +125,21 @@ function AdminSidebar({ sidebarOpen, currentPath }) {
 // Overview Component
 function Overview() {
   const stats = [
-    { title: 'Total Bookings', value: '1,234', change: '+12%', icon: '📅' },
-    { title: 'Revenue', value: '$45,678', change: '+8%', icon: '💰' },
-    { title: 'Active Users', value: '5,678', change: '+5%', icon: '👥' },
-    { title: 'Services', value: '24', change: '+2', icon: '🎯' }
+    { title: "Total Bookings", value: "0", change: "+0", icon: "📅" },
+    { title: "Revenue", value: "0", change: "+0", icon: "💰" },
+    { title: "Active Users", value: "3", change: "+3%", icon: "👥" },
+    { title: "Services", value: "8", change: "+0", icon: "🎯" },
   ];
 
   const recentActivities = [
-    { user: 'John Doe', action: 'Booked Wedding Planning', time: '2 min ago' },
-    { user: 'Sarah Smith', action: 'Cancelled Event', time: '1 hour ago' },
-    { user: 'Mike Johnson', action: 'Updated Profile', time: '2 hours ago' },
-    { user: 'Emily Davis', action: 'Booked Birthday Party', time: '3 hours ago' }
+    { user: "John Doe", action: "Booked Wedding Planning", time: "2 min ago" },
+    { user: "Sarah Smith", action: "Cancelled Event", time: "1 hour ago" },
+    { user: "Mike Johnson", action: "Updated Profile", time: "2 hours ago" },
+    {
+      user: "Emily Davis",
+      action: "Booked Birthday Party",
+      time: "3 hours ago",
+    },
   ];
 
   return (
@@ -141,7 +157,11 @@ function Overview() {
             <div className="stat-content">
               <h3>{stat.value}</h3>
               <p>{stat.title}</p>
-              <span className={`stat-change ${stat.change.includes('+') ? 'positive' : 'negative'}`}>
+              <span
+                className={`stat-change ${
+                  stat.change.includes("+") ? "positive" : "negative"
+                }`}
+              >
                 {stat.change}
               </span>
             </div>
@@ -157,7 +177,11 @@ function Overview() {
             <div className="chart-placeholder">
               <div className="chart-bars">
                 {[65, 80, 45, 90, 75, 50, 85].map((height, index) => (
-                  <div key={index} className="chart-bar" style={{ height: `${height}%` }}></div>
+                  <div
+                    key={index}
+                    className="chart-bar"
+                    style={{ height: `${height}%` }}
+                  ></div>
                 ))}
               </div>
             </div>
@@ -191,18 +215,50 @@ function Overview() {
 // Bookings Component
 function Bookings() {
   const bookings = [
-    { id: '#BK001', customer: 'John Doe', service: 'Wedding Planning', date: '2024-01-15', status: 'Confirmed', amount: '$2,500' },
-    { id: '#BK002', customer: 'Sarah Smith', service: 'Birthday Party', date: '2024-01-16', status: 'Pending', amount: '$800' },
-    { id: '#BK003', customer: 'Mike Johnson', service: 'Corporate Event', date: '2024-01-17', status: 'Confirmed', amount: '$3,200' },
-    { id: '#BK004', customer: 'Emily Davis', service: 'Anniversary', date: '2024-01-18', status: 'Cancelled', amount: '$1,200' }
+    {
+      id: "#BK001",
+      customer: "John Doe",
+      service: "Wedding Planning",
+      date: "2024-01-15",
+      status: "Confirmed",
+      amount: "$2,500",
+    },
+    {
+      id: "#BK002",
+      customer: "Sarah Smith",
+      service: "Birthday Party",
+      date: "2024-01-16",
+      status: "Pending",
+      amount: "$800",
+    },
+    {
+      id: "#BK003",
+      customer: "Mike Johnson",
+      service: "Corporate Event",
+      date: "2024-01-17",
+      status: "Confirmed",
+      amount: "$3,200",
+    },
+    {
+      id: "#BK004",
+      customer: "Emily Davis",
+      service: "Anniversary",
+      date: "2024-01-18",
+      status: "Cancelled",
+      amount: "$1,200",
+    },
   ];
 
   const getStatusClass = (status) => {
     switch (status) {
-      case 'Confirmed': return 'status-confirmed';
-      case 'Pending': return 'status-pending';
-      case 'Cancelled': return 'status-cancelled';
-      default: return '';
+      case "Confirmed":
+        return "status-confirmed";
+      case "Pending":
+        return "status-pending";
+      case "Cancelled":
+        return "status-cancelled";
+      default:
+        return "";
     }
   };
 
@@ -218,7 +274,7 @@ function Bookings() {
           <h3>Recent Bookings</h3>
           <button className="btn-primary">+ New Booking</button>
         </div>
-        
+
         <div className="table-container">
           <table className="data-table">
             <thead>
@@ -240,7 +296,11 @@ function Bookings() {
                   <td>{booking.service}</td>
                   <td>{booking.date}</td>
                   <td>
-                    <span className={`status-badge ${getStatusClass(booking.status)}`}>
+                    <span
+                      className={`status-badge ${getStatusClass(
+                        booking.status
+                      )}`}
+                    >
                       {booking.status}
                     </span>
                   </td>
@@ -261,6 +321,63 @@ function Bookings() {
   );
 }
 
+// Quotations Component
+function Quotations() {
+  const [quotes, setQuotes] = React.useState([]);
+
+  React.useEffect(() => {
+    const fetchQuotes = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/quotes");
+        const data = await response.json();
+        setQuotes(data);
+      } catch (error) {
+        console.error("Error fetching quotes:", error);
+      }
+    };
+
+    fetchQuotes();
+  }, []);
+
+  return (
+    <div className="quotations-page">
+      <div className="page-header">
+        <h1>Quotations</h1>
+        <p>View and manage customer quotations</p>
+      </div>
+
+      <div className="section-card">
+        <div className="table-header">
+          <h3>All Quotations</h3>
+        </div>
+
+        <div className="table-container">
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Event Date</th>
+                <th>Event Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {quotes.map((quote) => (
+                <tr key={quote._id}>
+                  <td>{quote.name}</td>
+                  <td>{quote.email}</td>
+                  <td>{new Date(quote.eventDate).toLocaleDateString()}</td>
+                  <td>{quote.eventType}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Users Component
 function Users() {
   const [users, setUsers] = React.useState([]);
@@ -268,11 +385,11 @@ function Users() {
   React.useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/users');
+        const response = await fetch("http://localhost:5000/api/users");
         const data = await response.json();
         setUsers(data);
       } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error("Error fetching users:", error);
       }
     };
 
@@ -289,9 +406,13 @@ function Users() {
       <div className="section-card">
         <div className="table-header">
           <h3>Registered Users</h3>
-          <input type="text" placeholder="Search users..." className="search-input" />
+          <input
+            type="text"
+            placeholder="Search users..."
+            className="search-input"
+          />
         </div>
-        
+
         <div className="table-container">
           <table className="data-table">
             <thead>
@@ -308,9 +429,7 @@ function Users() {
                 <tr key={user._id}>
                   <td>
                     <div className="user-info">
-                      <div className="user-avatar">
-                        {user.name.charAt(0)}
-                      </div>
+                      <div className="user-avatar">{user.name.charAt(0)}</div>
                       {user.name}
                     </div>
                   </td>
@@ -336,17 +455,45 @@ function Users() {
 // Services Component
 function Services() {
   const [services, setServices] = useState([
-    { id: 1, name: 'Wedding Planning', category: 'Wedding', price: '$2,000+', status: 'Active', bookings: 45 },
-    { id: 2, name: 'Birthday Party', category: 'Party', price: '$500+', status: 'Active', bookings: 23 },
-    { id: 3, name: 'Corporate Event', category: 'Corporate', price: '$1,500+', status: 'Active', bookings: 18 },
-    { id: 4, name: 'Anniversary', category: 'Celebration', price: '$800+', status: 'Inactive', bookings: 8 }
+    {
+      id: 1,
+      name: "Wedding Planning",
+      category: "Wedding",
+      price: "$2,000+",
+      status: "Active",
+      bookings: 45,
+    },
+    {
+      id: 2,
+      name: "Birthday Party",
+      category: "Party",
+      price: "$500+",
+      status: "Active",
+      bookings: 23,
+    },
+    {
+      id: 3,
+      name: "Corporate Event",
+      category: "Corporate",
+      price: "$1,500+",
+      status: "Active",
+      bookings: 18,
+    },
+    {
+      id: 4,
+      name: "Anniversary",
+      category: "Celebration",
+      price: "$800+",
+      status: "Inactive",
+      bookings: 8,
+    },
   ]);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    price: '',
-    category: ''
+    name: "",
+    description: "",
+    price: "",
+    category: "",
   });
 
   const handleChange = (e) => {
@@ -356,10 +503,10 @@ function Services() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/services', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/api/services", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -369,18 +516,18 @@ function Services() {
         setServices([...services, newService]);
         setShowForm(false);
         setFormData({
-          name: '',
-          description: '',
-          price: '',
-          category: ''
+          name: "",
+          description: "",
+          price: "",
+          category: "",
         });
       } else {
         const errorData = await response.json();
-        alert(errorData.message || 'Failed to create service.');
+        alert(errorData.message || "Failed to create service.");
       }
     } catch (error) {
-      console.error('Create service error:', error);
-      alert('An error occurred. Please try again later.');
+      console.error("Create service error:", error);
+      alert("An error occurred. Please try again later.");
     }
   };
 
@@ -396,14 +543,22 @@ function Services() {
           <div key={service.id} className="service-card">
             <div className="service-header">
               <h3>{service.name}</h3>
-              <span className={`service-status ${service.status.toLowerCase()}`}>
+              <span
+                className={`service-status ${service.status.toLowerCase()}`}
+              >
                 {service.status}
               </span>
             </div>
             <div className="service-details">
-              <p><strong>Category:</strong> {service.category}</p>
-              <p><strong>Price:</strong> {service.price}</p>
-              <p><strong>Bookings:</strong> {service.bookings}</p>
+              <p>
+                <strong>Category:</strong> {service.category}
+              </p>
+              <p>
+                <strong>Price:</strong> {service.price}
+              </p>
+              <p>
+                <strong>Bookings:</strong> {service.bookings}
+              </p>
             </div>
             <div className="service-actions">
               <button className="btn-edit">Edit</button>
@@ -413,7 +568,10 @@ function Services() {
         ))}
       </div>
 
-      <button className="btn-primary add-service-btn" onClick={() => setShowForm(!showForm)}>
+      <button
+        className="btn-primary add-service-btn"
+        onClick={() => setShowForm(!showForm)}
+      >
         + Add New Service
       </button>
 
@@ -423,23 +581,55 @@ function Services() {
           <form onSubmit={handleSubmit}>
             <div className="setting-group">
               <label>Name</label>
-              <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className="setting-group">
               <label>Description</label>
-              <input type="text" name="description" value={formData.description} onChange={handleChange} required />
+              <input
+                type="text"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className="setting-group">
               <label>Price</label>
-              <input type="text" name="price" value={formData.price} onChange={handleChange} required />
+              <input
+                type="text"
+                name="price"
+                value={formData.price}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className="setting-group">
               <label>Category</label>
-              <input type="text" name="category" value={formData.category} onChange={handleChange} required />
+              <input
+                type="text"
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className="settings-actions">
-              <button type="submit" className="btn-primary">Create Service</button>
-              <button type="button" className="btn-secondary" onClick={() => setShowForm(false)}>Cancel</button>
+              <button type="submit" className="btn-primary">
+                Create Service
+              </button>
+              <button
+                type="button"
+                className="btn-secondary"
+                onClick={() => setShowForm(false)}
+              >
+                Cancel
+              </button>
             </div>
           </form>
         </div>
@@ -448,16 +638,15 @@ function Services() {
   );
 }
 
-
 // Vendors Component
 function Vendors() {
   const [vendors, setVendors] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    service: '',
-    contact: '',
-    email: ''
+    name: "",
+    service: "",
+    contact: "",
+    email: "",
   });
 
   const handleChange = (e) => {
@@ -467,10 +656,10 @@ function Vendors() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/vendors', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/api/vendors", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -480,18 +669,18 @@ function Vendors() {
         setVendors([...vendors, newVendor]);
         setShowForm(false);
         setFormData({
-          name: '',
-          service: '',
-          contact: '',
-          email: ''
+          name: "",
+          service: "",
+          contact: "",
+          email: "",
         });
       } else {
         const errorData = await response.json();
-        alert(errorData.message || 'Failed to create vendor.');
+        alert(errorData.message || "Failed to create vendor.");
       }
     } catch (error) {
-      console.error('Create vendor error:', error);
-      alert('An error occurred. Please try again later.');
+      console.error("Create vendor error:", error);
+      alert("An error occurred. Please try again later.");
     }
   };
 
@@ -502,7 +691,10 @@ function Vendors() {
         <p>Manage your event vendors</p>
       </div>
 
-      <button className="btn-primary add-vendor-btn" onClick={() => setShowForm(!showForm)}>
+      <button
+        className="btn-primary add-vendor-btn"
+        onClick={() => setShowForm(!showForm)}
+      >
         + Add New Vendor
       </button>
 
@@ -512,23 +704,55 @@ function Vendors() {
           <form onSubmit={handleSubmit}>
             <div className="setting-group">
               <label>Name</label>
-              <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className="setting-group">
               <label>Service</label>
-              <input type="text" name="service" value={formData.service} onChange={handleChange} required />
+              <input
+                type="text"
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className="setting-group">
               <label>Contact</label>
-              <input type="text" name="contact" value={formData.contact} onChange={handleChange} required />
+              <input
+                type="text"
+                name="contact"
+                value={formData.contact}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className="setting-group">
               <label>Email</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className="settings-actions">
-              <button type="submit" className="btn-primary">Create Vendor</button>
-              <button type="button" className="btn-secondary" onClick={() => setShowForm(false)}>Cancel</button>
+              <button type="submit" className="btn-primary">
+                Create Vendor
+              </button>
+              <button
+                type="button"
+                className="btn-secondary"
+                onClick={() => setShowForm(false)}
+              >
+                Cancel
+              </button>
             </div>
           </form>
         </div>
@@ -576,16 +800,16 @@ function Vendors() {
 
 function Settings() {
   const [settings, setSettings] = useState({
-    siteName: 'Royal Creation',
-    adminEmail: 'admin@royalcreation.com',
+    siteName: "Royal Creation",
+    adminEmail: "admin@royalcreation.com",
     notifications: true,
-    autoApprove: false
+    autoApprove: false,
   });
 
   const handleInputChange = (field, value) => {
-    setSettings(prev => ({
+    setSettings((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -601,18 +825,18 @@ function Settings() {
           <h3>General Settings</h3>
           <div className="setting-group">
             <label>Site Name</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={settings.siteName}
-              onChange={(e) => handleInputChange('siteName', e.target.value)}
+              onChange={(e) => handleInputChange("siteName", e.target.value)}
             />
           </div>
           <div className="setting-group">
             <label>Admin Email</label>
-            <input 
-              type="email" 
+            <input
+              type="email"
               value={settings.adminEmail}
-              onChange={(e) => handleInputChange('adminEmail', e.target.value)}
+              onChange={(e) => handleInputChange("adminEmail", e.target.value)}
             />
           </div>
         </div>
@@ -621,10 +845,12 @@ function Settings() {
           <h3>Preferences</h3>
           <div className="setting-group checkbox-group">
             <label className="checkbox-label">
-              <input 
-                type="checkbox" 
+              <input
+                type="checkbox"
                 checked={settings.notifications}
-                onChange={(e) => handleInputChange('notifications', e.target.checked)}
+                onChange={(e) =>
+                  handleInputChange("notifications", e.target.checked)
+                }
               />
               <span className="checkmark"></span>
               Enable Email Notifications
@@ -632,10 +858,12 @@ function Settings() {
           </div>
           <div className="setting-group checkbox-group">
             <label className="checkbox-label">
-              <input 
-                type="checkbox" 
+              <input
+                type="checkbox"
                 checked={settings.autoApprove}
-                onChange={(e) => handleInputChange('autoApprove', e.target.checked)}
+                onChange={(e) =>
+                  handleInputChange("autoApprove", e.target.checked)
+                }
               />
               <span className="checkmark"></span>
               Auto-approve Bookings
