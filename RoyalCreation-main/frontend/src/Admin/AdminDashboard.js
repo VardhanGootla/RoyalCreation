@@ -263,12 +263,21 @@ function Bookings() {
 
 // Users Component
 function Users() {
-  const users = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', phone: '+1234567890', joinDate: '2024-01-01', bookings: 5 },
-    { id: 2, name: 'Sarah Smith', email: 'sarah@example.com', phone: '+1234567891', joinDate: '2024-01-05', bookings: 2 },
-    { id: 3, name: 'Mike Johnson', email: 'mike@example.com', phone: '+1234567892', joinDate: '2024-01-10', bookings: 3 },
-    { id: 4, name: 'Emily Davis', email: 'emily@example.com', phone: '+1234567893', joinDate: '2024-01-12', bookings: 1 }
-  ];
+  const [users, setUsers] = React.useState([]);
+
+  React.useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/users');
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
 
   return (
     <div className="users-page">
@@ -291,13 +300,12 @@ function Users() {
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Join Date</th>
-                <th>Bookings</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {users.map((user) => (
-                <tr key={user.id}>
+                <tr key={user._id}>
                   <td>
                     <div className="user-info">
                       <div className="user-avatar">
@@ -308,8 +316,7 @@ function Users() {
                   </td>
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
-                  <td>{user.joinDate}</td>
-                  <td>{user.bookings}</td>
+                  <td>{new Date(user.createdAt).toLocaleDateString()}</td>
                   <td>
                     <div className="action-buttons">
                       <button className="btn-edit">View</button>
