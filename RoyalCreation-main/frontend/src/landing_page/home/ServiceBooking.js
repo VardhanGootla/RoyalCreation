@@ -74,7 +74,7 @@ const ServiceBooking = () => {
       <div className="booking-container">
         <div className="booking-card">
           <h1 className="booking-title">Plan Your Perfect Event</h1>
-          <p className="booking-subtitle">Select an event and fill out your details to get a personalized quotation.</p>
+          <p className="booking-subtitle">Select an event and fill out your details to get a personalized suggestion.</p>
 
           <form onSubmit={handleSubmit}>
             <div className="form-section d-block">
@@ -96,16 +96,20 @@ const ServiceBooking = () => {
             <div className="form-section d-block">
               <h2 className="section-title d-block">2. Your Details</h2>
               <div className="details-grid form-inputs d-block">
-                <input type="text" name="name" placeholder="Full Name" className="form-input" value={formData.name} onChange={handleInputChange} required />
-                <input type="email" name="email" placeholder="Email Address" className="form-input" value={formData.email} onChange={handleInputChange} required />
-                <input type="tel" name="phone" placeholder="Phone Number" className="form-input" value={formData.phone} onChange={handleInputChange} required />
-                <input type="date" name="date" className="form-input" value={formData.date} onChange={handleInputChange} required />
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" name="name" placeholder="Enter Your Full Name" className="form-input" value={formData.name} onChange={handleInputChange} required />
+                <label for="email" class="form-label"> Email Address</label>
+                <input type="email" name="email" placeholder="Enter Your Email Address" className="form-input" value={formData.email} onChange={handleInputChange} required />
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" name="phone" placeholder="Enter Your Phone Number" className="form-input" value={formData.phone} onChange={handleInputChange} required />
+                <label for="date" class="form-label">Event Date</label>
+                <input type="date" name="date" id="date" className="form-input" value={formData.date} onChange={handleInputChange} required />
               </div>
             </div>
             
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-            <button type="submit" className="submit-btn">Get Quotation</button>
+            <button type="submit" className="submit-btn">Contact Us</button>
           </form>
         </div>
       </div>
