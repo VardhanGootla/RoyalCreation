@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from './Hero';
 import PopularSearch from './PopularSearch';
 import EventCategory from './EventCategory';
-import ServiceBooking from './ServiceBooking';
+import ContactUs from './ContactUs';
 import Reviews from './Reviews';
 import Blog from './Blog';
 import OpenAccount from '../OpenAccount'; // This should work
@@ -16,7 +16,7 @@ function HomePage() {
       <Hero/>
       <PopularSearch/>
       <EventCategory/>
-      <ServiceBooking/>
+      <ContactUs/>
       <Reviews/>
       <Blog/>
       <OpenAccount/>

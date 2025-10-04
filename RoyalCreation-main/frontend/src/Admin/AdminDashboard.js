@@ -33,7 +33,7 @@ function AdminDashboard() {
             <Routes>
               <Route path="/" element={<Overview />} />
               <Route path="/bookings" element={<Bookings />} />
-              <Route path="/quotations" element={<Quotations />} />
+              <Route path="/contacts" element={<Contacts />} />
               <Route path="/users" element={<Users />} />
               <Route path="/services" element={<Services />} />
               <Route path="/vendors" element={<Vendors />} />
@@ -97,7 +97,7 @@ function AdminSidebar({ sidebarOpen, currentPath }) {
   const menuItems = [
     { path: "/admin/dashboard", icon: "📊", label: "Overview" },
     { path: "/admin/dashboard/bookings", icon: "📅", label: "Bookings" },
-    { path: "/admin/dashboard/quotations", icon: "📝", label: "Quotations" },
+    { path: "/admin/dashboard/contacts", icon: "📝", label: "Contacts" },
     { path: "/admin/dashboard/users", icon: "👥", label: "Users" },
     { path: "/admin/dashboard/services", icon: "🎯", label: "Services" },
     { path: "/admin/dashboard/vendors", icon: "🏪", label: "Vendors" },
@@ -321,8 +321,8 @@ function Bookings() {
   );
 }
 
-// Quotations Component
-function Quotations() {
+// Contacts Component
+function Contacts() {
   const [quotes, setQuotes] = React.useState([]);
 
   React.useEffect(() => {
@@ -332,7 +332,7 @@ function Quotations() {
         const data = await response.json();
         setQuotes(data);
       } catch (error) {
-        console.error("Error fetching quotes:", error);
+        console.error("Error fetching contacts:", error);
       }
     };
 
@@ -340,15 +340,15 @@ function Quotations() {
   }, []);
 
   return (
-    <div className="quotations-page">
+    <div className="contacts-page">
       <div className="page-header">
-        <h1>Quotations</h1>
-        <p>View and manage customer quotations</p>
+        <h1>Contacts</h1>
+        <p>View and manage customer contacts</p>
       </div>
 
       <div className="section-card">
         <div className="table-header">
-          <h3>All Quotations</h3>
+          <h3>All Contacts</h3>
         </div>
 
         <div className="table-container">

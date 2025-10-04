@@ -6,7 +6,7 @@ import AboutPage from './landing_page/AboutPage'; // Correct path for AboutPage
 import ServicesPage from './ServicesPage'; // Correct path for ServicesPage
 import ReviewsPage from './landing_page/ReviewsPage';
 import BlogPage from './landing_page/BlogPage';
-import ServiceBooking from './landing_page/home/ServiceBooking';
+import ContactUs from './landing_page/home/ContactUs';
 import StressFreeWedding from './landing_page/weddingDiaries/blogs/StressFreeWedding';
 import BirthdayThemes from './landing_page/weddingDiaries/blogs/BirthdayThemes';
 import CorporateEvents from './landing_page/weddingDiaries/blogs/CorporateEvents';
@@ -34,7 +34,7 @@ function App() {
       <Route path="/blog/venue-selection-guide" element={<VenueSelectionGuide />} />
       <Route path="/blog/event-budgeting" element={<EventBudgeting />} />
       <Route path="/blog/decor-trends" element={<DecorTrends />} />
-      <Route path="/book-event" element={<ServiceBooking />} />
+      <Route path="/book-event" element={<ContactUs />} />
       <Route path="/details" element={<div>Details Page Placeholder</div>} />
       <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
     </Routes>

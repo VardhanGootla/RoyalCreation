@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './ServiceBooking.css';
+import './ContactUs.css';
 
 // --- Event Data with Image Links (No changes here) ---
 const events = [
@@ -14,7 +14,7 @@ const events = [
   { name: 'Naming Ceremony', img: 'https://images.pexels.com/photos/6691674/pexels-photo-6691674.jpeg' },
 ];
 
-const ServiceBooking = () => {
+const ContactUs = () => {
   // Get state from the location to pre-select an event
   const location = useLocation();
   const preselectedEvent = location.state?.eventType;
@@ -117,4 +117,4 @@ const ServiceBooking = () => {
   );
 };
 
-export default ServiceBooking;
+export default ContactUs;
