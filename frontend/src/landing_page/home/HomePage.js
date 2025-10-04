@@ -6,8 +6,6 @@ import ContactUs from './ContactUs';
 import Reviews from './Reviews';
 import Blog from './Blog';
 import OpenAccount from '../OpenAccount'; // This should work
-import Navbar from '../Navbar'; // This should work
-import Footer from '../Footer'; // This should work
 
 function HomePage() {
   return (
