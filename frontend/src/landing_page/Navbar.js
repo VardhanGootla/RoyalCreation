@@ -5,37 +5,49 @@ function Navbar() {
   const location = useLocation();
 
   const brandStyle = {
-    color: 'rgb(255, 102, 163)',
-    fontWeight: 'bold',
-    fontSize: '1.5rem',
+    fontWeight: '700',
+    fontSize: '1.8rem',
+    letterSpacing: '1px',
+    fontFamily: 'Poppins, sans-serif',
+    display: 'flex',
+    alignItems: 'center',
   };
 
   const ctaButtonStyle = {
-    backgroundColor: 'rgb(255, 102, 163)',
-    borderColor: 'rgb(255, 102, 163)',
+    backgroundColor: 'white',
+    borderColor: 'white',
     borderRadius: '50px',
     padding: '8px 25px',
+    color: 'rgb(255, 102, 163)',
+    fontWeight: '600',
+    transition: 'all 0.3s ease',
   };
 
   const secondaryButtonStyle = {
     backgroundColor: 'transparent',
-    border: '2px solid rgb(255, 102, 163)',
-    color: 'rgb(255, 102, 163)',
+    border: '2px solid white',
+    color: 'white',
     borderRadius: '50px',
     padding: '8px 20px',
-    marginRight: '10px'
+    marginRight: '10px',
+    fontWeight: '600',
+    transition: 'all 0.3s ease',
   };
 
   const navLinkStyle = {
     fontSize: '1.1rem',
     fontWeight: '500',
-    margin: '0 0.5rem',
+    margin: '0 0.8rem',
+    color: 'white',
   };
 
   return (
     <>
       <style>
         {`
+          .navbar-custom {
+            background: rgb(255, 102, 163) !important;
+          }
           .navbar-nav .nav-link {
             position: relative;
             transition: all 0.3s ease;
@@ -43,32 +55,32 @@ function Navbar() {
           .navbar-nav .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 50%;
             width: 0;
             height: 2px;
-            background: rgb(255, 102, 163);
+            background: white;
             transition: all 0.3s ease;
             transform: translateX(-50%);
           }
           .navbar-nav .nav-link:hover::after,
           .navbar-nav .nav-link.active::after {
-            width: 80%;
+            width: 70%;
           }
           .navbar-nav .nav-link:hover {
-            color: rgb(255, 102, 163) !important;
+            color: #f5f5f5 !important;
           }
           .navbar-nav .nav-link.active {
-            color: rgb(255, 102, 163) !important;
+            color: #fff !important;
           }
           .btn-signin:hover {
-            background-color: rgb(255, 102, 163) !important;
-            color: white !important;
+            background-color: white !important;
+            color: rgb(255, 102, 163) !important;
             transform: translateY(-2px);
           }
           .btn-booknow:hover {
-            background-color: #e60073 !important;
-            border-color: #e60073 !important;
+            background-color: #ffe6f0 !important;
+            color: rgb(255, 102, 163) !important;
             transform: translateY(-2px);
           }
           .navbar-brand:hover {
@@ -88,25 +100,13 @@ function Navbar() {
           }
         `}
       </style>
-      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
+      <nav className="navbar navbar-expand-lg navbar-dark navbar-custom shadow-sm sticky-top py-3">
         <div className="container">
-          <Link className="navbar-brand d-flex align-items-center" to="/" style={brandStyle}>
-            {/* Simple SVG Crown Logo */}
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="30" 
-              height="30" 
-              fill="currentColor" 
-              className="bi bi-crown-fill me-2" 
-              viewBox="0 0 16 16"
-              style={{ color: 'rgb(255, 102, 163)' }}
-            >
-              <path d="M8 0a1.5 1.5 0 0 0-1.5 1.5h3A1.5 1.5 0 0 0 8 0M5.5 2A1.5 1.5 0 0 0 4 3.5h8A1.5 1.5 0 0 0 10.5 2zM2 5.5a1.5 1.5 0 0 0-1.5 1.5v3a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5z"/>
-            </svg>
-            <span style={{ lineHeight: '1' }}>
-              Royal Creation
-            </span>
-          </Link>
+          <Link className="navbar-brand" to="/" style={brandStyle}>
+           <span style={{ color: 'white', fontWeight: 'bold' }}>Royal</span>
+           <span style={{ color: '#f3e9caff', marginLeft: '6px', fontWeight: 'bold' }}>Creation</span>
+
+</Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -121,7 +121,7 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/" style={navLinkStyle}>Home</Link>
+                <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} to="/" style={navLinkStyle}>Home</Link>
               </li>
               <li className="nav-item">
                 <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} to="/about" style={navLinkStyle}>About</Link>
@@ -143,7 +143,7 @@ function Navbar() {
               <Link to="/signin" className="btn btn-signin" style={secondaryButtonStyle}>
                 Sign In
               </Link>
-              <Link to="/book-event" className="btn btn-primary btn-booknow" style={ctaButtonStyle}>
+              <Link to="/book-event" className="btn btn-booknow" style={ctaButtonStyle}>
                 Contact Us
               </Link>
             </div>

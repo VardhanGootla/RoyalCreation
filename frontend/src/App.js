@@ -24,11 +24,21 @@ import Maharashtrian from './landing_page/weddingDiaries/WeddingsByCultur/Mahara
 import Marwadi from './landing_page/weddingDiaries/WeddingsByCultur/Marwadi';
 import Punjabi from './landing_page/weddingDiaries/WeddingsByCultur/Punjabi';
 import Telugu from './landing_page/weddingDiaries/WeddingsByCultur/Telugu';
+import BirthdayPartiesPage from './landing_page/birthdayParties/BirthdayPartiesPage';
+import EngagementPage from './landing_page/engagement/EngagementPage';
+import AnniversariesPage from './landing_page/anniversaries/AnniversariesPage';
+import CorporateEventsPage from './landing_page/corporateEvents/CorporateEventsPage';
+import Navbar from './landing_page/Navbar';
+import Footer from './landing_page/Footer';
 
 
 function App() {
   return (
-    <Routes>
+     <>
+    <Navbar/>
+    
+    <main>
+      <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/signin" element={<SignIn />} />
@@ -51,7 +61,14 @@ function App() {
       <Route path="/weddings/marwadi" element={<Marwadi />} />
       <Route path="/weddings/punjabi" element={<Punjabi />} />
       <Route path="/weddings/telugu" element={<Telugu />} />
+      <Route path="/birthdays" element={<BirthdayPartiesPage />} />
+      <Route path="/engagements" element={<EngagementPage />} />
+      <Route path="/anniversaries" element={<AnniversariesPage />} />
+      <Route path="/corporate-events" element={<CorporateEventsPage />} />
     </Routes>
+    </main>
+    <Footer/>
+   </>
   );
 }
 

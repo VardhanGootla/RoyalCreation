@@ -12,7 +12,7 @@ import Footer from '../Footer'; // This should work
 function HomePage() {
   return (
     <>
-      <Navbar/>  
+        
       <Hero/>
       <PopularSearch/>
       <EventCategory/>
@@ -20,7 +20,7 @@ function HomePage() {
       <Reviews/>
       <Blog/>
       <OpenAccount/>
-      <Footer/>
+      
     </>
   );
 }

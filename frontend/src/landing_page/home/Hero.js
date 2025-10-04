@@ -7,7 +7,7 @@ function Hero() {
 
   {/* Background Image */}
   <img
-    src="media/images/heroPhoto.jpg"
+    src="media/images/mainPhoto.webp"
     alt="Hero"
     className="w-100 h-100 object-fit-cover position-absolute top-0 start-0"
   />
@@ -15,21 +15,39 @@ function Hero() {
   {/* Content */}
   <div className="container position-relative d-flex flex-column justify-content-center align-items-center h-100 text-white">
 
-   <h1 className="display-4 font-weight-bold" style={{ textShadow: "2px 2px 8px rgba(0,0,0,0.7)" }}>
+  <h1 
+  className="font-override" 
+  style={{ 
+    fontSize: "3.5rem",   // much bigger (≈56px)
+    fontWeight: "900",    // ultra bold
+    color: "white", 
+    textShadow: "3px 3px 10px rgba(0,0,0,0.8)", 
+    letterSpacing: "2px", // spacing for luxury feel
+    textAlign: "center"   // centers it
+  }}
+>
   Welcome to Royal Creation
-  </h1>
+</h1>
 
-<p className="lead" style={{ textShadow: "1px 1px 6px rgba(0,0,0,0.7)" }}>
+
+  <h1 
+  style={{
+    fontSize: "2rem",
+    fontWeight: "350",
+    color: "white",
+    textShadow: "3px 3px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6), 0 0 40px rgba(0,0,0,0.4)",
+    letterSpacing: "2px",
+    textAlign: "center"
+  }}
+>
+
   Crafting unforgettable weddings & celebrations
-</p>
 
-    <a
-      href="#events"
-      className="btn btn-lg text-white"
-      style={{ background: "#FF66A3", borderRadius: "50px" }}
-    >
-      Explore Events
-    </a>
+</h1>
+
+
+
+  
   </div>
 </section>
 

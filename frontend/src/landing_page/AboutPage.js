@@ -34,19 +34,10 @@ const teamMembers = [
 
 const themeColor = 'rgb(255, 102, 163)';
 
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
- * The AboutPage component renders the About page of the website.
- * It includes a page header with title and tagline, a section about the company's story, and a section to meet the team members.
- * The page is styled with a light beige background and uses the theme color for accents and text.
-
- * and a footer.
- */
-/*******  a10c66a7-fb44-4b86-a780-0dc9e2e2ed6c  *******//*************  ✨ Windsurf Command ⭐  *************/
-/*******  6e2c595c-a293-43aa-b8ae-a2d6089723ee  *******/function AboutPage() {
+function AboutPage() {
   return (
     <>
-      <Navbar />
+      
 
       {/* Page Header */}
       <header className="py-5" style={{ backgroundColor: '#fdf2f7' }}>
@@ -108,7 +99,7 @@ const themeColor = 'rgb(255, 102, 163)';
         </div>
       </section>
 
-      <Footer />
+    
     </>
   );
 }
